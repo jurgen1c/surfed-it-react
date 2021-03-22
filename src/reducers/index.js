@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import boardsReducer from './board';
+import locationReducer from './location';
 import userReducer from './user';
 
 
