@@ -2,18 +2,18 @@ const initialBoardsState = {
   boards: [],
   sessions: [],
   new: null,
-}
+};
 
 const boardsReducer = (state = initialBoardsState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'SET_BOARDS':
       return {
         ...state,
-        boards: action.payload
-      }
+        boards: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default boardsReducer;

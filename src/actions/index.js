@@ -1,10 +1,15 @@
-const setUser = (user) => ({
+const setUser = user => ({
   type: 'SET_USER',
-  payload: user
-})
+  payload: user,
+});
 
 export const removeUser = () => ({
-  type: 'REMOVE_USER'
-})
+  type: 'REMOVE_USER',
+});
 
-export default setUser
+export const sendLogin = async (hook, data) => {
+  // await postData(data);
+  hook(setUser(data));
+};
+
+export default setUser;

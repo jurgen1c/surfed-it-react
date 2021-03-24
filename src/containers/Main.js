@@ -1,9 +1,10 @@
-const Main = () => {
-  return (
-    <div>
-      Hello
-    </div>
-  )
-}
+import Navbar from '../components/navbar/Navbar';
 
-export default Main
+const Main = () => (
+  <div>
+    Hello Auth is working
+    <Navbar />
+  </div>
+);
+
+export default Main;

@@ -3,7 +3,6 @@ import boardsReducer from './board';
 import locationReducer from './location';
 import userReducer from './user';
 
-
 const rootReducer = combineReducers({
   user: userReducer,
   locations: locationReducer,

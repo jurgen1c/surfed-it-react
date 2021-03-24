@@ -1,5 +1,5 @@
 const initialUserState = {
-  user: null
+  user: null,
 };
 
 const userReducer = (state = initialUserState, action) => {
@@ -11,10 +11,11 @@ const userReducer = (state = initialUserState, action) => {
         ...state,
         user,
       };
+      console.log(result);
       return result; }
     case 'REMOVE_USER':
       return {
-        user: null
+        user: null,
       };
     default:
       return state;
