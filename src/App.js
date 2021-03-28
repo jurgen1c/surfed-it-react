@@ -1,23 +1,15 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
 import Login from './components/auth/Login';
-import Signup from './components/auth/Signup';
 import Main from './containers/Main';
-import useToken from './utils/useToken';
+import Signup from './containers/Signup';
 
 function App() {
-  const { token, setToken } = useToken();
-  console.log(token);
-
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
-
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">{Main}</Route>
-        <Route path="/signup" component={Signup} />
+        <Route exact path="/"><Main /></Route>
+        <Route path="/signup"><Signup /></Route>
+        <Route path="/users/sign_in"><Login /></Route>
         {/* <Route path="/mylocations" component={MyLocations} />
         <Route path="/myboards" component={MyBoards} />
         <Route path="/more" component={More} />
