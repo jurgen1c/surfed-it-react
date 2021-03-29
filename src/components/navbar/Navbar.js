@@ -1,11 +1,24 @@
+/* eslint-disable */
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import useToken from '../../utils/useToken';
+import { removeUser } from '../../actions';
+import * as api from '../../utils/api';
 
-const Navbar = () => {
-  const { setToken } = useToken();
-  const logout = () => {
-    sessionStorage.removeItem('token');
-    setToken();
+const Navbar = ({ user }) => {
+  // const { setToken } = useToken();
+  const dispatch = useDispatch();
+  const logout = async () => {
+    const session = { jwt: user?.jwt, aud: user?.aud };
+    const { response, json } = await api.del('http://localhost:3000', 'users/sign_out', {}, session);
+    if (response.status === 200) {
+      dispatch(removeUser())
+      console.log('logged out success');
+    }
+    if (sessionStorage.token) {
+      sessionStorage.removeItem('token');
+    }
+    console.log(json);
+    // setToken();
   };
   return (
     <div>

@@ -1,3 +1,5 @@
+import * as api from '../utils/api';
+
 const setUser = user => ({
   type: 'SET_USER',
   payload: user,
@@ -8,8 +10,16 @@ export const removeUser = () => ({
 });
 
 export const sendLogin = async (hook, data) => {
-  // await postData(data);
-  hook(setUser(data));
+  const { response, json } = await api.post(
+    'http://localhost:3000',
+    'users/sign_in',
+    data,
+    { aud: 'UNKNOWN' },
+  );
+  if (response.status === 401) {
+    console.log(response, json);
+  }
+  hook(setUser(json));
 };
 
 export default setUser;

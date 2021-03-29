@@ -1,21 +1,23 @@
 const initialUserState = {
-  user: null,
+  userInfo: null,
+  token: '',
 };
 
 const userReducer = (state = initialUserState, action) => {
   switch (action.type) {
     case 'SET_USER': {
-      const user = action.payload;
+      const userInfo = action.payload;
 
       const result = {
         ...state,
-        user,
+        userInfo,
       };
-      console.log(result);
+      console.log(`This is result: ${JSON.stringify(userInfo)}`);
       return result; }
     case 'REMOVE_USER':
       return {
-        user: null,
+        ...state,
+        userInfo: null,
       };
     default:
       return state;

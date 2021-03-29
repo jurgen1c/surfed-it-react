@@ -44,7 +44,7 @@ async function send({
   if (process.env.DEBUG_MODE === 'true') {
     console.log('DEBUG:', json);
   }
-  console.log(response, json);
+  // console.log(response, json);
   return { response, json };
 }
 
